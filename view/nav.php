@@ -8,11 +8,11 @@
   </span>
 </div>
         <div class="flex flex-row gap-2 lg:w-1/5">
-            <button class="btn btn-primary rounded-3xl shadow-sm lg:py-1 w-1/2 sm:text-lg text-sm  " style ="background-color: #8AC9C5; border:none">
+            <a href="./page_login.php" class="btn btn-primary rounded-3xl shadow-sm lg:py-1 w-1/2 sm:text-lg text-sm  " style ="background-color: #8AC9C5; border:none">
                 se connecter
-            </button>
-            <button class="btn btn-primary rounded-3xl shadow-sm w-1/2 sm:text-lg" style ="background-color:  #6F0B46; border:none ;">
+            </a>
+            <a href="./page_signup.php"  class="btn btn-primary rounded-3xl shadow-sm w-1/2 sm:text-lg" style ="background-color:  #6F0B46; border:none ;">
             s'inscrer
-            </button>
+            </a>
         </div>
     </nav>

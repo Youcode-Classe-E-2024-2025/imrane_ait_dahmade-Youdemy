@@ -1,6 +1,6 @@
 <?php
 
-class enseignant extends User{
+class enseignant extends Utilisateur{
 
 
 }

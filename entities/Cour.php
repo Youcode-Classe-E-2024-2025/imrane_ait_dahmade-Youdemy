@@ -1,28 +1,25 @@
 <?php
 
 class Cour {
-   
-    private ?int $idCour = null;
+    private int $idCour;
     private string $nomCour;
     private string $description;
-    private ?string $video = null;
-    private ?string $image = null;
-    private ?string $document = null;
+    private string $video;
+    private string $image;
+    private string $document;
     private Categorie $categorie;
-    private enseignant $enseignant;
-    private string $dateCreation;
+    private \DateTime $dateCreation;
+    private Utilisateur $enseignant;
 
-   
     public function __construct(
-        ?int $idCour,
+        int $idCour,
         string $nomCour,
         string $description,
-        ?string $video,
-        ?string $image,
-        ?string $document,
-        string $categorie,
-        string $enseignant,
-        string $dateCreation
+        string $video,
+        string $image,
+        string $document,
+        Categorie $categorie,
+        Utilisateur $enseignant
     ) {
         $this->idCour = $idCour;
         $this->nomCour = $nomCour;
@@ -31,81 +28,39 @@ class Cour {
         $this->image = $image;
         $this->document = $document;
         $this->categorie = $categorie;
+        $this->dateCreation = new \DateTime();
         $this->enseignant = $enseignant;
-        $this->dateCreation = $dateCreation;
-    }
-
-    // Getters et Setters
-
-    public function getIdCour(): ?int {
-        return $this->idCour;
-    }
-
-    public function setIdCour(?int $idCour): void {
-        $this->idCour = $idCour;
     }
 
     public function getNomCour(): string {
         return $this->nomCour;
     }
 
-    public function setNomCour(string $nomCour): void {
-        $this->nomCour = $nomCour;
-    }
-
     public function getDescription(): string {
         return $this->description;
     }
 
-    public function setDescription(string $description): void {
-        $this->description = $description;
-    }
-
-    public function getVideo(): ?string {
+    public function getVideo(): string {
         return $this->video;
     }
 
-    public function setVideo(?string $video): void {
-        $this->video = $video;
-    }
-
-    public function getImage(): ?string {
+    public function getImage(): string {
         return $this->image;
     }
 
-    public function setImage(?string $image): void {
-        $this->image = $image;
-    }
-
-    public function getDocument(): ?string {
+    public function getDocument(): string {
         return $this->document;
-    }
-
-    public function setDocument(?string $document): void {
-        $this->document = $document;
     }
 
     public function getCategorie(): Categorie {
         return $this->categorie;
     }
 
-    public function setCategorie(string $categorie): void {
-        $this->categorie = $categorie;
-    }
-
-    public function getEnseignant(): enseignant {
-        return $this->enseignant;
-    }
-
-    public function setEnseignant(string $enseignant): void {
-        $this->enseignant = $enseignant;
-    }
-
-    public function getDateCreation(): string {
+    public function getDateCreation(): \DateTime {
         return $this->dateCreation;
     }
 
-    public function setDateCreation(string $dateCreation): void {
-        $this->dateCreation = $dateCreation;
+    public function getEnseignant(): Utilisateur {
+        return $this->enseignant;
     }
 }
