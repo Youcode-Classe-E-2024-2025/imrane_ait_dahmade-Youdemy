@@ -1,6 +1,6 @@
 <?php
 
-require_once './configu.php';
+require_once '../config/configu.php';
 
 class DatabaseConnection {
     private static ?DatabaseConnection $instance = null;
@@ -16,7 +16,7 @@ class DatabaseConnection {
         try {
             $this->connection = new PDO($dsn, DB_USERNAME, DB_PASSWORD);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "hello";
+          
         } catch (PDOException $e) {
             die("Erreur de connexion : " . $e->getMessage());
         }
