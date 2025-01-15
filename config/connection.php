@@ -1,6 +1,6 @@
 <?php
 
-require_once '../config/configu.php';
+
 
 class DatabaseConnection {
     private static ?DatabaseConnection $instance = null;

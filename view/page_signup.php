@@ -18,7 +18,7 @@
     
     <div class="flex justify-center items-center w-2/3">
        
-    <form class="form-container p-6 rounded-lg w-1/3" id="signupForm">
+    <form class="form-container p-6 rounded-lg w-1/3" action="../index.php" method="POST" id="signupForm">
         <h2 class="text-2xl font-bold mb-4 text-center text-gray-700">Créer un compte</h2>
         <div class="form-group mb-4">
             <label for="exampleInputName" class="form-label">Nom complet</label>
@@ -47,16 +47,17 @@
                 <option value="Enseignant">Enseignant</option>
             </select>
         </div>
-        <button type="submit" class="btn w-full text-white" style="background-color: #6F0B46;">S'inscrire</button>
+        <button type="submit" class="btn w-full text-white" style="background-color: #6F0B46;" name="register">S'inscrire</button>
         <div class="text-center mt-3">
             <small>Vous avez déjà un compte ? <a href="./page_login.php" class="text-primary">Connectez-vous</a></small>
         </div>
     </form>
     </div>
 
+  
     <script>
         document.getElementById("signupForm").addEventListener("submit", function(event) {
-            event.preventDefault();
+          
             let isValid = true;
 
             // Réinitialiser les messages d'erreur
@@ -93,10 +94,18 @@
                 isValid = false;
             }
 
+            // Si tous les champs sont valides
             if (isValid) {
-                alert("Inscription réussie !");
-                // Soumettre le formulaire (optionnel)
-                this.submit();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Inscription réussie !',
+                    text: 'Votre compte a été créé avec succès.',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#6F0B46',
+                }).then(() => {
+                 
+                    console.log("Formulaire soumis avec succès.");
+                });
             }
         });
     </script>

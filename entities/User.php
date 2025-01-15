@@ -11,7 +11,7 @@ class Utilisateur {
       $this->nom = $nom;
       $this->email = $email;
       $this->password = $password;
-      $this->role = $role;
+      $this->role =  $role;
       $this->statutInscription = 'activer'; // par défaut
       $this->dateCreation = new \DateTime();
   }
@@ -47,6 +47,7 @@ class Utilisateur {
   public function getDateCreation(): \DateTime {
       return $this->dateCreation;
   }
+  
 }
 
 ?>

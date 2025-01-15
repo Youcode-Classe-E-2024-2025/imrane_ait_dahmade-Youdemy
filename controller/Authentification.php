@@ -12,6 +12,9 @@ public function __construct(UserModal $userModal)
         return  $modal->AjouterUser($user);
         
     }
+    public function login($email,$password){
+        
+    }
 
 
 }

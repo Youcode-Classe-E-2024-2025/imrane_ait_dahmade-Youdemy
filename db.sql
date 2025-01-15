@@ -348,3 +348,16 @@ VALUES
     ('Marketing'),
     ('Finance');
 
+-- Insertion de 10 utilisateurs factices avec le rôle 'Etudiant'
+INSERT INTO Utilisateur (Nom, Email, Password, Role, StatutInscription)
+VALUES
+    ('Etudiant1', 'etudiant1@example.com', 'password1', 'Etudiant', 'activer'),
+    ('Etudiant2', 'etudiant2@example.com', 'password2', 'Etudiant', 'activer'),
+    ('Etudiant3', 'etudiant3@example.com', 'password3', 'Etudiant', 'activer'),
+    ('Etudiant4', 'etudiant4@example.com', 'password4', 'Etudiant', 'activer'),
+    ('Etudiant5', 'etudiant5@example.com', 'password5', 'Etudiant', 'activer'),
+    ('Etudiant6', 'etudiant6@example.com', 'password6', 'Etudiant', 'activer'),
+    ('Etudiant7', 'etudiant7@example.com', 'password7', 'Etudiant', 'activer'),
+    ('Etudiant8', 'etudiant8@example.com', 'password8', 'Etudiant', 'activer'),
+    ('Etudiant9', 'etudiant9@example.com', 'password9', 'Etudiant', 'activer'),
+    ('Etudiant10', 'etudiant10@example.com', 'password10', 'Etudiant', 'activer');
