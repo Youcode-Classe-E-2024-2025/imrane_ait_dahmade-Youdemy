@@ -1,5 +1,5 @@
 <?php
-
+    
 class CourContrller
 {
 
@@ -27,5 +27,25 @@ class CourContrller
         $totalPages = ceil($totalCours/$elementParPage);
         return [$Cours,$totalPages,$page];
 
+    }
+    public function rechercheController($motcle){
+     
+        $totalCours = $this->CourModal->GetTotalCour();
+       
+        $elementParPage = 4;
+        $totalPages = ceil($totalCours/$elementParPage);
+        
+        if($motcle){
+           
+            $Cours = $this->CourModal->rechercheCour($motcle); 
+            return $Cours;
+        }
+        else{
+            
+            echo "echo";
+
+
+        }
+       
     }
 }

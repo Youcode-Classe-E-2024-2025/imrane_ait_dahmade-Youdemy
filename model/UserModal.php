@@ -26,10 +26,10 @@ class UserModal
     }
     public function login($Email, $password)
     {
-        $requet = "SELECT * FROM Utilisateur where Email = :email and StatuInscription = :activer";
+        $requet = "SELECT * FROM Utilisateur where Email = :email and StatuInscription = 'activer'";
         $stmt = $this->conn->prepare($requet);
         $stmt->bindParam(':email', $Email, PDO::PARAM_STR);
-        $stmt->bindParam(':activer', $active, PDO::PARAM_STR);
+        // $stmt->bindParam(':activer', $active, PDO::PARAM_STR);
         $user =  $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && password_verify($password, $user['PASSWORD'])) {

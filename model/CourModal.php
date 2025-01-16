@@ -1,6 +1,6 @@
 <?php
-require_once "../config/configu.php";
-require_once "../config/connection.php";
+require_once __DIR__ . "/../config/configu.php";
+require_once __DIR__ . "/../config/connection.php";
 
 class CourModal {
 
@@ -32,6 +32,14 @@ class CourModal {
         $stmt->execute();
        return $stmt->fetchColumn();
     }
+    public function rechercheCour($mot_cle) {       
+        $requet = "SELECT * FROM Cour WHERE NomCour LIKE :MOTCLE OR Categorie = :MOTCLE";
+        $stmt = $this->conn->prepare($requet);
+        $stmt->bindParam(':MOTCLE', $mot_cle, PDO::PARAM_STR);
+        $stmt->execute();   
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);  // Retourne les résultats sous forme de tableau associatif.
+    }
+    
     
 }
 

@@ -6,7 +6,6 @@
 
 $CourModal = new CourModal();
 $Courcontroller = new CourContrller($CourModal);
-
 $data = $Courcontroller->AffichageCoursWithPagination();
 $cours =$data[0];
 $totalPages =$data[1];

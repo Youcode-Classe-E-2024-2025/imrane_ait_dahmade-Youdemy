@@ -3,8 +3,20 @@
             <img src="../images/logo.png" class="img-fluid w-36"  alt="">
         </div>
         <div class="input-group rounded  sm:w-[20%] w-1/2  ">
-  <input type="search" class="form-control rounded-3xl" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-   
+        <form action="../index.php" method="GET" class="d-flex align-items-center gap-2">
+  <input 
+    value="<?= htmlspecialchars($_GET['mot_cle'] ?? '') ?>" 
+    type="search" 
+    name="mot_cle" 
+    class="form-control rounded-3xl" 
+    placeholder="Search" 
+    aria-label="Search" 
+    aria-describedby="search-addon" 
+  />
+  <button type="submit" class="btn btn-primary bg-transparent border-none "><img src="../images/recherche.png" alt="" class="w-[50%] image-cercle "></button>
+</form>
+
+
   </span>
 </div>
         <div class="flex flex-row gap-2 lg:w-1/5">
