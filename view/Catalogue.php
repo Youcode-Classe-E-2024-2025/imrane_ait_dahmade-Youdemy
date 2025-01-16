@@ -26,7 +26,7 @@ $page =$data[2];
 <?php include_once "./nav.php";?>
 <main class=" flex flex-wrap gap-2   m-[2%]">
   <?php foreach($cours as $cour): ?>
-<div class="card flex-1 " style=" ">
+<div class="card flex-1 " >
   <img src="<?= $cour['image'] ?>" class="card-img-top h-52" alt="...">
   <div class="card-body">
     <h5 class="card-title  text-2xl"><?= htmlspecialchars($cour['NomCour']) ?></h5>

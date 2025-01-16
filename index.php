@@ -46,8 +46,9 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
         echo "Aucun résultat trouvé pour : " . htmlspecialchars($mot_cle);
     }
 }
-          
 
     }
 
 }
+
+header('Location: /view/home_page.php');
