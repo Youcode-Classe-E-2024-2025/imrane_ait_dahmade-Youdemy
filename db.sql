@@ -361,3 +361,19 @@ VALUES
     ('Etudiant8', 'etudiant8@example.com', 'password8', 'Etudiant', 'activer'),
     ('Etudiant9', 'etudiant9@example.com', 'password9', 'Etudiant', 'activer'),
     ('Etudiant10', 'etudiant10@example.com', 'password10', 'Etudiant', 'activer');
+    USE Youdemy;
+
+    CREATE TABLE Etudiants As
+SELECT
+    Id,
+    Nom,
+    Email,
+    PASSWORD,
+    DateCreation
+FROM utilisateur
+WHERE
+    Role = 'Etudiant';
+
+    INSERT INTO Utilisateur (Nom, Email, Password, Role, StatutInscription)
+VALUES
+    ('Etudiant11', 'etudiant11@example.com', 'password11', 'Etudiant', 'activer')
