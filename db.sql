@@ -88,11 +88,14 @@ CREATE Table Categorie (
     NOmCategorie VARCHAR(255) UNIQUE not NULL
 );
 
-ALTER Table Categorie ADD PRIMARY KEY (NomCategorie);
+ALTER Table Categorie 
+ADD PRIMARY KEY (NomCategorie);
+
 
 ALTER Table Cour
 ADD COLUMN Enseignant int,
 Foreign Key (Enseignant) REFERENCES Utilisateur (Id);
+
 
 CREATE Table Tag ( NomTag VARCHAR(10) NOT NULL UNIQUE )
 
@@ -377,3 +380,61 @@ WHERE
     INSERT INTO Utilisateur (Nom, Email, Password, Role, StatutInscription)
 VALUES
     ('Etudiant11', 'etudiant11@example.com', 'password11', 'Etudiant', 'activer')
+
+USE Youdemy;
+    ALTER Table Tag 
+    ADD COLUMN IdTag int UNIQUE AUTO_INCREMENT PRIMARY KEY ;
+
+    INSERT INTO Tag (NomTag) VALUES
+('Programmation'),
+('Développement Web'),
+('JavaScript'),
+('HTML'),
+('CSS'),
+('PHP'),
+('Python'),
+('C#'),
+('Java'),
+('TypeScript'),
+('Ruby'),
+('Kotlin'),
+('Swift'),
+('Dart'),
+('Angular'),
+('React'),
+('Node.js'),
+('Spring Boot'),
+('Flask'),
+('Django'),
+('Bootstrap'),
+('SQL'),
+('NoSQL'),
+('MongoDB'),
+('PostgreSQL'),
+('MySQL'),
+('Machine Learning'),
+('Intelligence Artificielle'),
+('Big Data'),
+('Cloud Computing');
+
+ALTER TABLE categorie DROP PRIMARY KEY;
+
+ALTER TABLE categorie ADD COLUMN id INT UNIQUE NOT NULL AUTO_INCREMENT PRIMARY KEY;
+USE Youdemy;
+CREATE Table CourTags (
+    IdCour INT  ,
+    IdTag INT,
+    Foreign Key (IdCour) REFERENCES cour(IdCour),
+    Foreign Key (IdTag) REFERENCES tag(IdTag)
+    ) ;
+USE Youdemy;
+    ALTER TABLE Cour
+ADD COLUMN Video VARCHAR(255)  ;
+
+CREATE TABLE inscription (
+    IdUser INT,          
+    IdCour INT,      
+    date_inscription TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  
+    FOREIGN KEY (IdUser) REFERENCES utilisateur(id) ON DELETE CASCADE,   
+    FOREIGN KEY (IdCour) REFERENCES Cour(IdCour) ON DELETE CASCADE  
+);
