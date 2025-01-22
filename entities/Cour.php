@@ -1,66 +1,78 @@
 <?php
 
-class Cour {
+class Cour
+{
     private int $idCour;
     private string $nomCour;
     private string $description;
-    private string $video;
     private string $image;
-    private string $document;
-    private Categorie $categorie;
+    private string $categorie;
     private \DateTime $dateCreation;
     private Utilisateur $enseignant;
+    private array $tags;
 
     public function __construct(
-        int $idCour,
+
         string $nomCour,
         string $description,
-        string $video,
         string $image,
-        string $document,
-        Categorie $categorie,
-        Utilisateur $enseignant
+        string $categorie,
+        Utilisateur $enseignant,
+        array $tags
     ) {
-        $this->idCour = $idCour;
+        
         $this->nomCour = $nomCour;
         $this->description = $description;
-        $this->video = $video;
+     
         $this->image = $image;
-        $this->document = $document;
+     
         $this->categorie = $categorie;
         $this->dateCreation = new \DateTime();
         $this->enseignant = $enseignant;
+        $this->tags = $tags;
     }
 
-    public function getNomCour(): string {
+
+    public function getNomCour(): string
+    {
         return $this->nomCour;
     }
 
-    public function getDescription(): string {
+    public function getDescription(): string
+    {
         return $this->description;
     }
 
-    public function getVideo(): string {
-        return $this->video;
-    }
-
-    public function getImage(): string {
+  
+    public function getImage(): string
+    {
         return $this->image;
     }
 
-    public function getDocument(): string {
-        return $this->document;
-    }
+  
 
-    public function getCategorie(): Categorie {
+    public function getCategorie(): string
+    {
         return $this->categorie;
     }
 
-    public function getDateCreation(): \DateTime {
+    public function getDateCreation(): \DateTime
+    {
         return $this->dateCreation;
     }
 
-    public function getEnseignant(): Utilisateur {
+    public function getEnseignant(): Utilisateur
+    {
         return $this->enseignant;
+    }
+    public function gettag(): array
+    {
+        return $this->tags;
+    }
+    public function SetId($idCour){
+        $this->idCour =$idCour;
+    }
+    public function SetTags($tags){
+        $this->tags = $tags;
     }
 }

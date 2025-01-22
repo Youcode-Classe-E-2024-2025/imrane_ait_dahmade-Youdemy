@@ -1,5 +1,6 @@
 <?php
     class Tag{
+        private $IdTag;
         private $NomTag;
 
         public function __construct($NomTag)
@@ -10,7 +11,10 @@
                 return $this->NomTag ;
 
         }
+        public function GetId(){
+            return $this->IdTag;
+        }
+        
     }
-
 
 ?>

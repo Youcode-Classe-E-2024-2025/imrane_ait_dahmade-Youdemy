@@ -5,9 +5,9 @@ class Role {
     const ENSEIGNANT = 'Enseignant';
     const ADMINISTRATEUR = 'Administrateur';
 
-    private string $role;
+    private $role;
 
-    public function __construct(string $role) {
+    public function __construct($role) {
         if (!in_array($role, [self::ETUDIANT, self::ENSEIGNANT, self::ADMINISTRATEUR])) {
             throw new InvalidArgumentException("Le rôle {$role} n'est pas valide.");
         }

@@ -1,8 +1,10 @@
 <?php
+require_once __DIR__ . "/../config/configu.php";
+require_once __DIR__ . "/../config/connection.php";
 class UserModal
 {
 
-    private PDO $conn;
+    protected PDO $conn;
     public function __construct()
     {
         $this->conn = DatabaseConnection::getInstance()->getConnection();
@@ -26,21 +28,49 @@ class UserModal
     }
     public function login($Email, $password)
     {
-        $requet = "SELECT * FROM Utilisateur where Email = :email and StatuInscription = 'activer'";
+        $requet = "SELECT * FROM Utilisateur WHERE Email = :email AND StatutInscription = 'activer'";
+
         $stmt = $this->conn->prepare($requet);
         $stmt->bindParam(':email', $Email, PDO::PARAM_STR);
+        $stmt->execute();
         // $stmt->bindParam(':activer', $active, PDO::PARAM_STR);
         $user =  $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && password_verify($password, $user['PASSWORD'])) {
-            return new Utilisateur(
+            $role = new Role($user['Role']);
+          
+            $creeUser = new Utilisateur(
                 $user['Nom'],
                 $user['Email'],
                 $user['PASSWORD'],
-                $user['Etudiant']
+                $role
             );
-        } else {
-            echo "un probleme";
-        }
+           
+          
+            if (isset($user['Id'])) {
+                $creeUser->setId($user['Id']) ;  // Assurez-vous que l'ID est défini correctement dans votre modèle
+            }
+          
+        
+           
+         
+           
+            return $creeUser; 
+        } 
+        return null ;
     }
+    public function SelectUser($id){
+        $requet = "SELECT * FROM utilisateur WHERE Id = :id ";
+        $stmt = $this->conn->prepare($requet);
+        $stmt->execute([':id' => $id]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    public function AffichagesUser(){  
+        $requet = "SELECT * FROM Utilisateur ";
+        $stmt = $this->conn->prepare($requet);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+ 
 }
