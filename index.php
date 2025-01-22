@@ -278,6 +278,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $courRecherche->SuprimerCour($_POST['IdCour']);
         var_dump($_POST['IdCour']);
     }
+    if(isset($_POST['ModifierCour'])){
+        
+    }
     
 }
 

@@ -91,7 +91,10 @@ class CourContrller
         $this->CourModal->SuprimerCour($idCour);
         return 'i am here';
     }
+   public function StatistiqueNombreCour(){
+     return $this->CourModal->StatistiqueNombreDesCours();
 
+   }
    
 
 }

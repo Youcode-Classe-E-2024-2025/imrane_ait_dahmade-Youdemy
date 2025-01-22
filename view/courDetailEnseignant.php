@@ -11,6 +11,8 @@ require_once "../controller/controllerCategorie.php";
 $tags = new TagControlleur(new TagsModal);
 
 
+
+
 $tags = new TagControlleur(new TagsModal);
 $tags = $tags->AfficherTags($_GET['IdCour']);
 $categories = new controllerCategorie(new CategorieModal);
@@ -132,7 +134,7 @@ $cour = $cour->AfficheCour($_GET['IdCour']);
         <h2 class="text-2xl font-bold mb-4">Modifier un Cours</h2>
 
         <!-- Formulaire -->
-        <form action="modifierCour.php" method="POST" enctype="multipart/form-data">
+        <form action="../index.php" method="POST" enctype="multipart/form-data">
             <!-- ID caché -->
             <input type="hidden" name="IdCour" value="<?= htmlspecialchars($cour['IdCour']) ?>">
 

@@ -210,5 +210,20 @@ return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
     
+    public function StatistiqueNombreDesCours(){
+        $requet = "SELECT COUNT(*) FROM Cour";
+        $stmt = $this->conn->prepare($requet);
+        $stmt->execute();
+      return  $stmt->fetchColumn();       
+    }
+    public function StatiqueNombreDesCoursCategorie(){
+        $requet = "
+        SELECT Categorie, COUNT(*) as NombreCours
+        FROM cour
+        GROUP BY Categorie;
+    ";
+    
+    }
+
 }
 
