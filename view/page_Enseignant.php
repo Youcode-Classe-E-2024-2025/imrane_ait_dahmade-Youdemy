@@ -246,7 +246,7 @@ function dd(...$var)
         </section>
         <section id="AfficherSectionCour" class="flex flex-wrap  px-2  pt-4 ">
         <?php foreach($cours as $cour): ?>
-<div class="card flex-1 w-[30%] " >
+<div class="card flex-1  " >
   <img src="../<?=  $cour['image'] ?>" class="card-img-top h-52" alt="...">
   <div class="card-body">
     <h5 class="card-title  text-2xl"><?= htmlspecialchars($cour['NomCour']) ?></h5>
