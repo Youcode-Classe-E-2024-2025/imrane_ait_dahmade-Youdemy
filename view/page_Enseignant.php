@@ -13,6 +13,8 @@ $cours = $cours->AffichageCoursEnseignant($_GET['name']);
 
 
 
+session_start();
+$id = $_SESSION['IdUser'];
 
 $tags = new TagControlleur(new TagsModal);
 $categories = new controllerCategorie(new CategorieModal);
@@ -242,9 +244,9 @@ function dd(...$var)
                 </span>
             </button>
         </section>
-        <section id="AfficherSectionCour" class="flex flex-wrap w-full px-2  pt-4 ">
+        <section id="AfficherSectionCour" class="flex flex-wrap  px-2  pt-4 ">
         <?php foreach($cours as $cour): ?>
-<div class="card flex-1 " >
+<div class="card flex-1 w-[30%] " >
   <img src="../<?=  $cour['image'] ?>" class="card-img-top h-52" alt="...">
   <div class="card-body">
     <h5 class="card-title  text-2xl"><?= htmlspecialchars($cour['NomCour']) ?></h5>

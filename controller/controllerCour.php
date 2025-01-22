@@ -87,9 +87,11 @@ class CourContrller
         $this->CourModal->suprimerCourInscreptionEtudiant($idUser,$idCour);
        
     }
-    public function SuprimerCour($id){
-        $this->CourModal->SuprimerCour($id);
+    public function SuprimerCour($idCour){
+        $this->CourModal->SuprimerCour($idCour);
+        return 'i am here';
     }
 
+   
 
 }
