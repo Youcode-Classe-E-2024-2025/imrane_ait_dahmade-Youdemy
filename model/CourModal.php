@@ -173,7 +173,7 @@ class CourModal
 return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
-    public function suprimerCourInscreptionEtudiant($IdUser,$IdCour){
+    public function suprimerCourInscreptionEtudiant($IdCour,$IdUser){
         $requet = "DELETE FROM inscription WHERE IdCour = :idCour AND IdUser = :idUser;";
             $stmt = $this->conn->prepare($requet);
             $stmt->execute([

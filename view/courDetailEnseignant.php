@@ -98,7 +98,7 @@ $cour = $cour->AfficheCour($_GET['IdCour']);
                         </button>
                     </form>
                     <!-- Supprimer -->
-                    <form action="./deleteCour.php" method="POST" class="ml-4">
+                    <form action="../index.php" method="POST" class="ml-4">
                         <input type="hidden" name="IdCour" value="<?= htmlspecialchars($cour['IdCour']) ?>">
                         <button 
                             type="submit" 
