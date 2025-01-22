@@ -180,7 +180,19 @@ return $stmt->fetchAll(PDO::FETCH_ASSOC);
                 ':idCour' => $IdCour,
                 ':idUser' => $IdUser,
             ]);
+            header('Location: ./view/page_Etudiant.php');
 
+
+        
+
+    }
+   
+    public function SuprimerCour($idCour){
+        $requet = "DELETE FROM Cour where IdCour = :IdCour ;";
+        $stmt = $this->conn->prepare($requet);
+        $stmt->execute([
+            ':IdCour' => $idCour
+        ]);
         
 
     }
