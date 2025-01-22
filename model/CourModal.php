@@ -206,6 +206,9 @@ return $stmt->fetchAll(PDO::FETCH_ASSOC);
             return "Erreur lors de la suppression : " . $e->getMessage();
         }
     }
+    public function ModifierCour($cour){
+
+    }
     
 }
 
