@@ -15,6 +15,23 @@ class TagsModal{
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function AjouterTag($tag){
+        $requet = "INSERT INTO tag (NomTag) VALUES (:TAG)";
+        $stmt =$this->conn->prepare($requet);
+        $stmt->execute([
+            ':TAG' =>$tag
+        ]);
+    }
+    public function SuprimerTag($id){
+        $requet = "DELETE FROM tag where IdTag = :tag";
+        $stmt = $this->conn->prepare($requet);
+        $stmt->execute([
+            ':tag' => $id
+        ]);
+    }
+    public function Modifiertag($id){
+        $requet = ""
+    }
     public function AjouterTagsCour($Tags,$IdCour){
         foreach($Tags as $tag){
         $requet = "INSERT INTO CourTag (IdCour,IdTag) VALUES (:IdCour,:IdTag);";

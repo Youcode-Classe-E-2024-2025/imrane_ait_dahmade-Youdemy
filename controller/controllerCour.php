@@ -95,6 +95,9 @@ class CourContrller
      return $this->CourModal->StatistiqueNombreDesCours();
 
    }
+   public function statiqueNombreCourCategorie(){
+    return $this->CourModal->StatiqueNombreDesCoursCategorie();
+   }
    
 
 }

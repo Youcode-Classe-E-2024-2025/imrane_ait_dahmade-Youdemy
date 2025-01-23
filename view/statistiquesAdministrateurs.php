@@ -21,7 +21,6 @@ foreach ($categoriesArray as $categorie) {
 
 
 
-
 ?>
 
 
@@ -78,7 +77,6 @@ foreach ($categoriesArray as $categorie) {
 
     <script>
         var totalCours = <?php echo  json_encode($NomCour) ?>
-        var Categories = <?php echo json_encode($categoriesName);?>
         // Données simulées pour les statistiques
         const stats = {
             totalCours: totalCours,

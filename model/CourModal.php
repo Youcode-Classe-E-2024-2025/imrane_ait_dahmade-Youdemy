@@ -190,23 +190,51 @@ return $stmt->fetchAll(PDO::FETCH_ASSOC);
     public function SuprimerCour($idCour)
     {
         try {
-            // Supprimer les lignes associées dans courtags
+           
             $requetTags = "DELETE FROM courtags WHERE IdCour = :IdCour;";
             $stmtTags = $this->conn->prepare($requetTags);
             $stmtTags->execute([':IdCour' => $idCour]);
     
-            // Supprimer le cours après avoir supprimé les dépendances
+         
             $requetCour = "DELETE FROM Cour WHERE IdCour = :IdCour;";
             $stmtCour = $this->conn->prepare($requetCour);
             $stmtCour->execute([':IdCour' => $idCour]);
     
             return "Suppression réussie";
+            
     
         } catch (PDOException $e) {
             return "Erreur lors de la suppression : " . $e->getMessage();
         }
     }
     public function ModifierCour($cour){
+        $sql = "
+        UPDATE cour
+        SET
+            NomCour = :NomCour,
+            Description = :Description,
+            Video = :Video,
+            Image = :Image,
+            Document = :Document,
+            Categorie = :Categorie,
+            Enseignant = :Enseignant
+        WHERE
+            IdCour = :IdCour
+    ";
+
+    $stmt = $this->conn->prepare($sql);
+
+ 
+    $stmt->execute([
+        ':NomCour' => $cour['NomCour'],
+        ':Description' => $cour['Description'],
+        ':Video' => $cour['Video'] ?? null,
+        ':Image' => $cour['Image'] ?? null, 
+        ':Document' => $cour['Document'] ?? null, 
+        ':Categorie' => $cour['Categorie'],
+        ':Enseignant' => $cour['Enseignant'],
+        ':IdCour' => $cour['IdCour']
+    ]);
 
     }
     
@@ -216,14 +244,24 @@ return $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->execute();
       return  $stmt->fetchColumn();       
     }
-    public function StatiqueNombreDesCoursCategorie(){
+    public function StatiqueNombreDesCoursCategorie() {
+     
         $requet = "
-        SELECT Categorie, COUNT(*) as NombreCours
-        FROM cour
-        GROUP BY Categorie;
-    ";
+            SELECT Categorie, COUNT(*) as NombreCours
+            FROM cour
+            GROUP BY Categorie;
+        ";
+        
     
+        $stmt = $this->conn->prepare($requet);
+        $stmt->execute();
+        
+      
+        $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        return $resultats; 
     }
+    
 
 }
 
